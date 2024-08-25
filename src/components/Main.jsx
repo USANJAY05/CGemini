@@ -26,7 +26,7 @@ const Main = () => {
         <SideBar />
         <section className=' w-full flex flex-col dark:bg-black dark:text-white items-center'>
             <Header />
-            <div className='w-[750px] h-full  flex flex-col overflow-auto gap-3 p-3'>
+            <div className='lg:w-[750px] w-full h-full  flex flex-col overflow-auto gap-3 p-3'>
                 <div className=' rounded-md p-3 flex gap-2'>
                     <img src={contact} className='w-10 h-10' alt="" />
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus saepe enim, quos distinctio, incidunt repellendus doloremque ratione quas nisi in fugit natus! At quae modi quaerat, tenetur voluptatibus recusandae esse itaque. Molestiae numquam ad sapiente labore laborum tenetur inventore </p>
@@ -165,7 +165,7 @@ const Main = () => {
                 </div>
             </div>
             <footer className=' pb-12 w-full flex justify-center'>
-                <input className='rounded-sm bg-inherit border p-3 sm:w-[500px] lg:w-[700px] xl:w-[900px] outline-none' placeholder='Enter the text' type="text" name="" id="" />
+                <input className='rounded-sm bg-inherit border p-3 w-full sm:w-[500px] lg:w-[700px] xl:w-[900px] outline-none' placeholder='Enter the text' type="text" name="" id="" />
             </footer>
         </section>
     </main>
