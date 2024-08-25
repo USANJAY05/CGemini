@@ -13,7 +13,7 @@ export default defineConfig({
         name: 'My Vite App',
         short_name: 'ViteApp',
         description: 'My awesome Vite app!',
-        theme_color: '#ffffff',
+        theme_color: '#000000',
         icons: [
           {
             src: 'pwa-192x192.png',
