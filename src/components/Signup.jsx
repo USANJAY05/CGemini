@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import useMobileSize from '../hooks/useMobileSize';
 
 const Signup = ({ email, setEmail, password, setPassword, error, setError }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+  const isMobile=useMobileSize()
   const navigate = useNavigate();
 
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 800);
-  };
+  // const handleResize = () => {
+  //   setIsMobile(window.innerWidth < 800);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,8 +44,8 @@ const Signup = ({ email, setEmail, password, setPassword, error, setError }) => 
       navigate('/signup');
     }
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    // window.addEventListener('resize', handleResize);
+    // return () => window.removeEventListener('resize', handleResize);
   }, [navigate]);
 
   return (

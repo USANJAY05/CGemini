@@ -1,7 +1,7 @@
 import React from 'react'
 import SideBar from './SideBar'
 import { useNavigate } from 'react-router';
-import { useEffect } from 'react';
+import { useEffect ,useState} from 'react';
 import Header from './Header';
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaRobot } from "react-icons/fa";
@@ -11,6 +11,8 @@ import bot from '../assets/cat.png'
 
 const Main = () => {
     const navigate = useNavigate();
+    const [sideBar,setSideBar]=useState(false)
+
 
     useEffect(() => {
         const userCredentials = JSON.parse(localStorage.getItem('userCredentials'));
@@ -23,9 +25,9 @@ const Main = () => {
       }, [navigate]);
   return (
     <main className='w-full h-screen bg-green-400 flex'>
-        <SideBar />
+        <SideBar sideBar={sideBar} setSideBar={setSideBar} />
         <section className=' w-full flex flex-col dark:bg-black dark:text-white items-center'>
-            <Header />
+            <Header sideBar={sideBar} setSideBar={setSideBar} />
             <div className='lg:w-[750px] w-full h-full  flex flex-col overflow-auto gap-3 p-3'>
                 <div className=' rounded-md p-3 flex gap-2'>
                     <img src={contact} className='w-10 h-10' alt="" />
