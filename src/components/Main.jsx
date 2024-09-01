@@ -6,6 +6,8 @@ import Header from './Header';
 import contact from '../assets/contact.png';
 import bot from '../assets/cat.png';
 import Default from './Default';
+import ReactMarkdown from 'react-markdown';
+
 
 const Main = ({ items, select, setSelect, type, setType, handleSubmit,handleDelete }) => {
   const navigate = useNavigate();
@@ -42,7 +44,10 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit,handleDele
                   className='w-10 h-10 bg-white rounded-3xl' 
                   alt="" 
                 />
-                <p>{item.data}</p>
+                <div>
+                  <ReactMarkdown>{item.data}</ReactMarkdown>
+                </div>
+
               </div>
             </div>
           ))}
