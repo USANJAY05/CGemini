@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* src/styles/tailwind.css */
+
+@layer utilities {
+    .code-overflow {
+      @apply overflow-x-auto;
+    }
+  }
+  /* src/styles/tailwind.css */
+
+/* src/styles/tailwind.css */
+/* src/styles/tailwind.css */
+/* src/styles/tailwind.css */
+
+@layer components {
+    .markdown a {
+      @apply text-blue-500 underline; /* Style links */
+    }
+  
+    .markdown h1 {
+      @apply text-4xl font-bold mt-4 mb-2; /* Style h1 headings */
+    }
+  
+    .markdown h2 {
+      @apply text-3xl font-semibold mt-3 mb-2; /* Style h2 headings */
+    }
+  
+    .markdown h3 {
+      @apply text-2xl font-medium mt-2 mb-1; /* Style h3 headings */
+    }
+  
+    .markdown h4 {
+      @apply text-xl font-normal mt-1 mb-1; /* Style h4 headings */
+    }
+  
+    .markdown h5 {
+      @apply text-lg font-normal mt-1 mb-1; /* Style h5 headings */
+    }
+  
+    .markdown h6 {
+      @apply text-base font-normal mt-1 mb-1; /* Style h6 headings */
+    }
+  
+    .markdown p {
+      @apply mb-2; /* Add margin bottom to paragraphs */
+    }
+  
+    .markdown ul {
+      @apply list-disc pl-5 mb-2; /* Style unordered lists */
+    }
+  
+    .markdown ol {
+      @apply list-decimal pl-5 mb-2; /* Style ordered lists */
+    }
+  
+    .markdown li {
+      @apply mb-1; /* Add margin bottom to list items */
+    }
+  
+    .markdown dl {
+      @apply mb-4; /* Add margin bottom to description lists */
+    }
+  
+    .markdown dt {
+      @apply font-bold mb-1; /* Style definition term */
+    }
+  
+    .markdown dd {
+      @apply mb-2 pl-5; /* Style definition description */
+    }
+  
+    .markdown table {
+      @apply w-full border-collapse mt-4 mb-4; /* Style tables */
+    }
+  
+    .markdown th,
+    .markdown td {
+      @apply border border-gray-300 p-2; /* Style table headers and cells */
+    }
+  
+    .markdown th {
+      @apply bg-black font-bold; /* Style table headers */
+    }
+  
+    .markdown tr:nth-child(even) {
+      @apply bg-black; /* Zebra striping for table rows */
+    }
+  
+    .markdown code {
+      @apply bg-slate-900 px-1 py-0.5 rounded; /* Style inline code */
+    }
+  
+    .markdown pre {
+      @apply bg-black text-white p-4 rounded; /* Style code blocks */
+    }
+  }

@@ -22,7 +22,11 @@ const SideBar = ({sideBar,setSideBar,items,select,setSelect,handleDelete}) => {
         <div className='h-full overflow-auto p-2'>
             <ul className='overflow-auto'>
                 {items.map(item=>(
-                    <li key={item.id} className={`p-2 hover:bg-gray-500 rounded-md flex justify-between items-center ${select===item.id?'bg-gray-500':''}`} onClick={()=>setSelect(item.id)} >{item.content.length>25?item.content.slice(0,23)+'....':item.content}<FaTrash onClick={()=>handleDelete(item.id)} className='hover:text-red-500 text-gray-950' /></li>
+                    <li key={item.id} className={` hover:bg-gray-500 rounded-md flex justify-between items-center ${select===item.id?'bg-gray-500':''}`} >
+                        <div className='p-2 w-full'  onClick={()=>setSelect(item.id)}>
+                            {item.content.length>25?item.content.slice(0,20)+'....':item.content}
+                        </div>
+                        <FaTrash onClick={()=>handleDelete(item.id)} className='text-2xl w-10 hover:text-red-500 text-gray-950' /></li>
                 ))}
             </ul>
         </div>
