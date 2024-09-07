@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import useMobileSize from '../hooks/useMobileSize';
+import sideLogo from '../assets/Designer-13.png'
+
 
 const Signup = ({ email, setEmail, password, setPassword, error, setError }) => {
   const isMobile=useMobileSize()
@@ -52,12 +54,12 @@ const Signup = ({ email, setEmail, password, setPassword, error, setError }) => 
     <section className={`grid ${!isMobile && 'grid-cols-2'} h-screen`}>
       <section className={`flex items-center justify-center bg-gray-200 ${isMobile ? 'hidden' : ''}`}>
         <img
-          src='https://png.pngtree.com/background/20210709/original/pngtree-blue-artificial-intelligent-technology-picture-image_956962.jpg'
+          src={sideLogo}
           className='w-full h-full'
           alt='Artificial Intelligence'
         />
       </section>
-      <section className='bg-slate-950 flex flex-col items-center gap-16 pt-20 dark:text-white'>
+      <section className='dark:bg-slate-950 flex flex-col items-center gap-16 pt-20 dark:text-white'>
         <h1 className='text-3xl'>C-Gemini</h1>
         <div className='w-96 p-8 border border-slate-800 rounded flex flex-col gap-10'>
           <h2 className='text-2xl text-center'>Signup</h2>
