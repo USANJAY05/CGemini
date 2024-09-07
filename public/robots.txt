@@ -1,0 +1,19 @@
+# Allow all bots to access all content
+User-agent: *
+Disallow:
+
+# Disallow all bots from accessing certain paths
+User-agent: *
+Disallow: /private/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /settings/
+
+# Disallow all bots from accessing specific file types
+User-agent: *
+Disallow: /*.json$
+Disallow: /*.md$
+
+# Specify the location of the sitemap
+Sitemap: https://www.yourwebsite.com/sitemap.xml
