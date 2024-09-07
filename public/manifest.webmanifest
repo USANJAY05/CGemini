@@ -1,0 +1,23 @@
+{
+    "name": "CGemini",
+    "short_name": "CGemini",
+    "description": "Custom Gemini app powered by Gemini API",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "/favicon.ico",
+        "sizes": "192x192",
+        "type": "image/x-icon"
+      },
+      {
+        "src": "/favicon.ico",
+        "sizes": "512x512",
+        "type": "image/x-icon"
+      }
+    ]
+  }
+  

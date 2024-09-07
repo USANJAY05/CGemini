@@ -11,7 +11,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'CGemini',
         short_name: 'CGemini',
@@ -19,20 +19,14 @@ export default defineConfig({
         theme_color: '#000000',
         icons: [
           {
-            src: 'src/assets/Designer-9.png',
+            src: '/favicon.ico',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/x-icon',
           },
           {
-            src: 'src/assets/Designer-9.png',
+            src: '/favicon.ico',
             sizes: '512x512',
-            type: 'image/png',
-          },
-          {
-            src: 'src/assets/Designer-9.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable',
+            type: 'image/x-icon',
           },
         ],
       },
