@@ -45,6 +45,22 @@ const App = () => {
     }
   };
 
+  const handleSubmit1 = async (type) => {
+    setLoading(true); // Start loading spinner
+    try {
+      // Call the API and get the response
+      setType(type)
+      const data = await onSent(type);
+      newItem(type, data); // Add the new item with the API response
+      setType(""); // Clear the input field
+      setError(""); // Clear any previous errors
+    } catch (error) {
+      setError("An error occurred while sending data."); // Handle API error
+    } finally {
+      setLoading(false); // Stop loading spinner
+    }
+  };
+
   const handleDelete=(id)=>{
     const item=items.filter(item=>item.id!==id)
     setItems(item)
@@ -55,7 +71,7 @@ const App = () => {
   return (
     <div className='font-bold'>
       <Routes>
-        <Route path='/' element={<Main items={items} select={select} setSelect={setSelect} type={type} setType={setType} handleSubmit={handleSubmit} handleDelete={handleDelete}/>} />
+        <Route path='/' element={<Main items={items} select={select} setSelect={setSelect} type={type} setType={setType} handleSubmit={handleSubmit} handleDelete={handleDelete} handleSubmit1={handleSubmit1}/>} />
         <Route path='/signup' element={<Signup email={email} password={password} setEmail={setEmail} setPassword={setPassword} error={error} setError={setError} navigate={navigate} />} />
         <Route path='/login' element={<Login email={email} password={password} setEmail={setEmail} setPassword={setPassword} error={error} setError={setError} navigate={navigate} />} />
         <Route path='*' element={<Missing />} />

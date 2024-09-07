@@ -4,7 +4,7 @@ import useMobileSize from '../hooks/useMobileSize';
 import { context } from '../context/context';
 import Loading from './Loading';
 
-const Default = ({ setType }) => {
+const Default = ({ handleSubmit }) => {
   const {loading}=useContext(context)
   const isMobile = useMobileSize();
 
@@ -14,17 +14,17 @@ const Default = ({ setType }) => {
       <img className="w-24 bg-white rounded-full" src={bot} alt="Bot" />
       <div className={`flex w-full gap-10 justify-center ${isMobile ? 'flex-col items-center gap-4' : ''}`}>
         <div 
-          onClick={() => setType("Explain programming")} 
+          onClick={() => handleSubmit("Explain programming")} 
           className="w-2/3 p-3 border hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
           Explain programming
         </div>
         <div 
-          onClick={() => setType("Explain about the internet")} 
+          onClick={() => handleSubmit("Explain about the internet")} 
           className="w-2/3 p-3 border hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
           Explain about the internet
         </div>
         <div 
-          onClick={() => setType("Teach me Python")} 
+          onClick={() => handleSubmit("Teach me Python")} 
           className="w-2/3 p-3 border hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
           Teach me Python
         </div>

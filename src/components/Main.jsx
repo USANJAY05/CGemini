@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { IoIosSend } from "react-icons/io";
 import SideBar from './SideBar';
@@ -14,10 +14,16 @@ import CopyButton from './CopyButton';
 import TextReader from './TextReader'; // Import the TextReader component
 import SpeechToText from './SpeechToText'; // Import the SpeechToText component
 
-const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDelete, loading }) => {
+const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDelete, loading,handleSubmit1 }) => {
   const navigate = useNavigate();
   const [sideBar, setSideBar] = useState(false);
+  const inputRef = useRef(null);
 
+  const handleFocus = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
   useEffect(() => {
     const userCredentials = JSON.parse(localStorage.getItem('userCredentials'));
 
@@ -26,9 +32,9 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
     }
   }, [navigate]);
 
-  const handleTextDetected = (text) => {
-    setType(text); // Set the detected text to the input field
-  };
+  // const handleTextDetected = (text) => {
+  //   setType(text); // Set the detected text to the input field
+  // };
 
   return (
     <main className='w-full h-screen bg-green-400 flex'>
@@ -37,19 +43,19 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
         <Header sideBar={sideBar} setSideBar={setSideBar} />
         <div className='lg:w-[750px] w-full h-full flex flex-col overflow-auto gap-3 p-3'>
           {select == null ? (
-            <Default setType={setType} />
+            <Default setType={setType} handleSubmit={handleSubmit1} />
           ) : (
             items.filter(item => item.id === select).map(item => (
               <div key={item.id}>
-                <div className='rounded-md p-3 flex gap-2'>
+                <div className='rounded-md p-3 flex flex-row-reverse items-end gap-2'>
                   <img 
                     src={item.type === 'human' ? contact : bot} 
                     className='w-10 h-10 bg-white rounded-3xl' 
                     alt="Contact or Bot" 
                   />
-                  <p>{item.content}</p>
+                  <p className='bg-gray-800 px-4 py-2 rounded'>{item.content}</p>
                 </div>
-                <div className='rounded-md p-3 flex gap-2'>
+                <div className='rounded-md p-3 flex gap-1 flex-col'>
                   <img 
                     src={item.type === 'bot' ? contact : bot} 
                     className='w-10 h-10 bg-white rounded-3xl' 
@@ -74,17 +80,21 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
 
         <form className='pb-12 w-full flex justify-center' onSubmit={handleSubmit}>
           <div className='w-full sm:w-[500px] lg:w-[700px] xl:w-[900px] relative'>
-            <input 
-              className='rounded-sm bg-inherit border p-3 pr-12 w-full outline-none' 
-              autoFocus 
-              placeholder='Enter the text' 
-              type="text" 
-              value={type} 
-              onChange={(e) => setType(e.target.value)} 
+            <input
+              className='rounded-sm bg-inherit border p-3 pr-12 w-full outline-none'
+              autoFocus
+              placeholder='Enter the text'
+              type="text"
+              ref={inputRef}
+              value={type}
+              onChange={(e) => setType(e.target.value)}
             />
-            <IoIosSend 
-              className='text-4xl absolute top-2 right-3 cursor-pointer' 
-              onClick={(e) => handleSubmit(e)} 
+            <IoIosSend
+              className='text-4xl absolute top-2 right-3 cursor-pointer'
+              onClick={(e) => {
+                handleSubmit(e);
+                handleFocus(); // Focus on the input after submit
+              }}
             />
           </div>
         </form>

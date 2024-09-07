@@ -25,12 +25,12 @@ const TextReader = ({ text }) => {
     <div className='relative'>
       <button
         onClick={isReading ? stopReading : startReading}
-        className={`bg-slate-700 text-white p-1 rounded flex gap-2 items-center ${
+        className={` hover:bg-slate-700 text-white p-1 rounded flex gap-2 items-center ${
           isReading ? 'text-red-500' : ''
         }`}
         title={isReading ? "Stop reading" : "Read aloud"}
       >
-        {isReading ? <FiVolumeX className='text-3xl' /> : <FiVolume2 className='text-3xl'/>}Speak
+        {isReading ? <FiVolumeX className='text-xl' /> : <FiVolume2 className='text-xl'/>}
       </button>
     </div>
   );

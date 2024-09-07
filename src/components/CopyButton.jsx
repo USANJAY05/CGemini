@@ -32,11 +32,10 @@ const CopyButton = ({ targetId, title }) => {
   return (
     <button
       onClick={copyToClipboard}
-      className='bg-slate-700 text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-blue-600'
+      className='hover:bg-slate-700 text-white px-2 py-2 rounded flex items-center gap-2'
       title={title}
     >
       <FaCopy />
-      Copy
     </button>
   );
 };
