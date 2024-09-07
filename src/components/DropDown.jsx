@@ -73,7 +73,7 @@ const DropDown = ({ dropDown, setDropDown }) => {
   }, []);
 
   return (
-    <section ref={dropdownRef} className='fixed p-2 rounded-lg top-14 right-3 dark:bg-slate-800 w-56 flex flex-col gap-2'>
+    <section ref={dropdownRef} className='fixed p-2 rounded-lg top-14 right-3 bg-gray-100 shadow-xl text-black dark:bg-slate-800 w-56 dark:text-white flex flex-col gap-2'>
       <h2 className='w-full text-center'>{email}</h2>
       <input
         type="file"

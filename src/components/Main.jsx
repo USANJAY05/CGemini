@@ -37,7 +37,7 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
   // };
 
   return (
-    <main className='w-full h-screen bg-green-400 flex'>
+    <main className='w-full h-screen bg-white flex'>
       <SideBar sideBar={sideBar} setSideBar={setSideBar} items={items} setSelect={setSelect} select={select} handleDelete={handleDelete} />
       <section className='w-full flex flex-col dark:bg-black dark:text-white items-center'>
         <Header sideBar={sideBar} setSideBar={setSideBar} />
@@ -53,7 +53,7 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
                     className='w-10 h-10 bg-white rounded-3xl' 
                     alt="Contact or Bot" 
                   />
-                  <p className='bg-gray-800 px-4 py-2 rounded'>{item.content}</p>
+                  <p className='bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded'>{item.content}</p>
                 </div>
                 <div className='rounded-md p-3 flex gap-1 flex-col'>
                   <img 

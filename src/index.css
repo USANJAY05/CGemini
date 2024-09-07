@@ -81,18 +81,18 @@
     }
   
     .markdown th {
-      @apply bg-black font-bold; /* Style table headers */
+      @apply dark:bg-white dark:text-black bg-black text-white font-bold; /* Style table headers */
     }
   
     .markdown tr:nth-child(even) {
-      @apply bg-black; /* Zebra striping for table rows */
+      @apply dark:bg-slate-900 bg-slate-100; /* Zebra striping for table rows */
     }
   
     .markdown code {
-      @apply bg-slate-900 px-1 py-0.5 rounded; /* Style inline code */
+      @apply bg-gray-200 dark:bg-slate-900 px-1 py-0.5 rounded; /* Style inline code */
     }
   
     .markdown pre {
-      @apply bg-black text-white p-4 rounded; /* Style code blocks */
+      @apply bg-gray-300 dark:bg-slate-800 text-white pt-6 rounded; /* Style code blocks */
     }
   }

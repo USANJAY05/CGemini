@@ -10,10 +10,10 @@ const SideBar = ({sideBar,setSideBar,items,select,setSelect,handleDelete}) => {
     
   return (
     <div className={`h-full`}>
-        <IoReorderThreeOutline className='fixed text-6xl m-2 text-white' onClick={()=>{setSideBar(!sideBar)}} />
+        <IoReorderThreeOutline className='fixed text-6xl m-2 dark:text-white' onClick={()=>{setSideBar(!sideBar)}} />
         <div className={`h-full overflow-auto ${isMobile?'w-52':'w-72'} bg-slate-950 flex flex-col gap-4 text-white  ${(isMobile && !sideBar) && 'hidden'} ${(!isMobile && sideBar)&&'hidden'}`}>
         <div className='text-center p-2 flex flex-col gap-4'>
-        <IoReorderThreeOutline className='text-6xl' onClick={()=>setSideBar(!sideBar)} />
+        <IoReorderThreeOutline className='z-10 text-6xl text-white ' onClick={()=>setSideBar(!sideBar)} />
         <button className='flex w-40 bg-gray-200 rounded-3xl items-center p-2 text-black hover:bg-gray-300' onClick={()=>setSelect(null)}>
             <FiPlus className='text-4xl' />
             New Item

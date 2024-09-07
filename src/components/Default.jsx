@@ -15,17 +15,17 @@ const Default = ({ handleSubmit }) => {
       <div className={`flex w-full gap-10 justify-center ${isMobile ? 'flex-col items-center gap-4' : ''}`}>
         <div 
           onClick={() => handleSubmit("Explain programming")} 
-          className="w-2/3 p-3 border hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
+          className="w-2/3 p-3 border hover:bg-gray-200 dark:hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
           Explain programming
         </div>
         <div 
           onClick={() => handleSubmit("Explain about the internet")} 
-          className="w-2/3 p-3 border hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
+          className="w-2/3 p-3 border hover:bg-gray-200 dark:hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
           Explain about the internet
         </div>
         <div 
           onClick={() => handleSubmit("Teach me Python")} 
-          className="w-2/3 p-3 border hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
+          className="w-2/3 p-3 border hover:bg-gray-200 dark:hover:bg-slate-800 rounded-lg flex items-center cursor-pointer">
           Teach me Python
         </div>
       </div>
