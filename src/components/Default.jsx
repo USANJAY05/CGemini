@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import bot from '../assets/cat.png';
+import bot from '../assets/Designer-9.png';
 import useMobileSize from '../hooks/useMobileSize';
 import { context } from '../context/context';
 import Loading from './Loading';

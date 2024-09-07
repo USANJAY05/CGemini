@@ -4,7 +4,7 @@ import { IoIosSend } from "react-icons/io";
 import SideBar from './SideBar';
 import Header from './Header';
 import contact from '../assets/contact.png';
-import bot from '../assets/cat.png';
+import bot from '../assets/Designer-9.png';
 import Default from './Default';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';

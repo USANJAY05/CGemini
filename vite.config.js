@@ -19,7 +19,7 @@ export default defineConfig({
         theme_color: '#000000',
         icons: [
           {
-            src: 'pwa-192x192.png',
+            src: 'src/assets/Designer-9.png',
             sizes: '192x192',
             type: 'image/png',
           },
