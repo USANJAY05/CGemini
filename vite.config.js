@@ -13,7 +13,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Custom-Gemini',
+        name: 'CGemini',
         short_name: 'CGemini',
         description: 'Custom Gemini app powered by Gemini API',
         theme_color: '#000000',
@@ -24,12 +24,12 @@ export default defineConfig({
             type: 'image/png',
           },
           {
-            src: 'pwa-512x512.png',
+            src: 'src/assets/Designer-9.png',
             sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: 'pwa-512x512.png',
+            src: 'src/assets/Designer-9.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',

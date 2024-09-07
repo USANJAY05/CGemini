@@ -37,11 +37,19 @@ const DropDown = ({ dropDown, setDropDown }) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       const data = JSON.parse(e.target.result);
-      
+
       // Merge existing data with imported data
       const existingCGeminiData = JSON.parse(localStorage.getItem('CGemini-data')) || [];
       const newCGeminiData = JSON.parse(data.CGeminiData) || [];
-      const mergedCGeminiData = [...existingCGeminiData, ...newCGeminiData];
+
+      // Extract existing IDs
+      const existingIds = new Set(existingCGeminiData.map(item => item.id));
+
+      // Filter new data to exclude items with existing IDs
+      const filteredNewData = newCGeminiData.filter(item => !existingIds.has(item.id));
+
+      // Merge the filtered new data with existing data
+      const mergedCGeminiData = [...existingCGeminiData, ...filteredNewData];
 
       localStorage.setItem('userCredentials', data.userCredentials);
       localStorage.setItem('CGemini-data', JSON.stringify(mergedCGeminiData));
