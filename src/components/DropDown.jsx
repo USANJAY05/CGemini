@@ -1,10 +1,9 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import { useNavigate } from 'react-router';
 import { context } from '../context/context';
 
-const DropDown = ({ dropDown, setDropDown }) => {
+const DropDown = forwardRef(({ dropDown, setDropDown }, ref) => {
   const { items, setItems, setSelect } = useContext(context);
-  const dropdownRef = useRef(null);
   const userCredentialsString = localStorage.getItem('userCredentials');
   const userCredentials = JSON.parse(userCredentialsString);
   const email = userCredentials?.email;
@@ -59,21 +58,8 @@ const DropDown = ({ dropDown, setDropDown }) => {
     reader.readAsText(file);
   };
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropDown(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   return (
-    <section ref={dropdownRef} className='fixed p-2 rounded-lg top-14 right-3 bg-gray-100 shadow-xl text-black dark:bg-slate-800 w-56 dark:text-white flex flex-col gap-2'>
+    <section ref={ref} className='fixed p-2 rounded-lg top-14 right-3 bg-gray-100 shadow-xl text-black dark:bg-slate-800 w-56 dark:text-white flex flex-col gap-2'>
       <h2 className='w-full text-center'>{email}</h2>
       <input
         type="file"
@@ -110,6 +96,6 @@ const DropDown = ({ dropDown, setDropDown }) => {
       </button>
     </section>
   );
-};
+});
 
 export default DropDown;
