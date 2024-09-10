@@ -10,7 +10,7 @@ const DropDown = forwardRef(({ dropDown, setDropDown }, ref) => {
   const navigate = useNavigate();
 
   const handleErase = () => {
-    localStorage.removeItem('CGemini-data');
+    localStorage.removeItem('CGemini-collections');
     setDropDown(!dropDown);
     setItems([]);
     setSelect(null);
@@ -19,7 +19,7 @@ const DropDown = forwardRef(({ dropDown, setDropDown }, ref) => {
   const exportData = () => {
     const data = {
       userCredentials: localStorage.getItem('userCredentials'),
-      CGeminiData: localStorage.getItem('CGemini-data'),
+      CGeminiData: localStorage.getItem('CGemini-collections'),
     };
     const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -38,7 +38,7 @@ const DropDown = forwardRef(({ dropDown, setDropDown }, ref) => {
       const data = JSON.parse(e.target.result);
 
       // Merge existing data with imported data
-      const existingCGeminiData = JSON.parse(localStorage.getItem('CGemini-data')) || [];
+      const existingCGeminiData = JSON.parse(localStorage.getItem('CGemini-collections')) || [];
       const newCGeminiData = JSON.parse(data.CGeminiData) || [];
 
       // Extract existing IDs
@@ -51,7 +51,7 @@ const DropDown = forwardRef(({ dropDown, setDropDown }, ref) => {
       const mergedCGeminiData = [...existingCGeminiData, ...filteredNewData];
 
       localStorage.setItem('userCredentials', data.userCredentials);
-      localStorage.setItem('CGemini-data', JSON.stringify(mergedCGeminiData));
+      localStorage.setItem('CGemini-collections', JSON.stringify(mergedCGeminiData));
       setItems(mergedCGeminiData);
       setSelect(null);
     };
