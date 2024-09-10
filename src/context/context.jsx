@@ -43,7 +43,7 @@ const ContextProvider = (props) => {
 
         if (select === null) {
             const collectionId = generateUniqueId(email + "_Collection");
-            const newCollection = { id: collectionId, items: [newItemData] };
+            const newCollection = { id: collectionId,title:type, items: [newItemData] };
             const updatedCollections = [...collections, newCollection];
             setCollections(updatedCollections);
             setSelect(collectionId);
