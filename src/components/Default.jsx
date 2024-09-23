@@ -10,7 +10,7 @@ const Default = ({ handleSubmit }) => {
 
   return (
     <>{loading?(<Loading />):(
-      <div className={`flex flex-col items-center gap-10 h-full ${isMobile ? 'mt-16' : 'mt-32'}`}>
+      <div className={`flex flex-col items-center gap-10 h-full ${isMobile ? 'justify-center' : 'justify-center'}`}>
       <img className="w-24 bg-white rounded-full" src={bot} alt="Bot" />
       <div className={`flex w-full gap-10 justify-center ${isMobile ? 'flex-col items-center gap-4' : ''}`}>
         <div 
