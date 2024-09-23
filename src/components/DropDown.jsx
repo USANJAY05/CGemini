@@ -18,8 +18,7 @@ const DropDown = forwardRef(({ dropDown, setDropDown }, ref) => {
 
   const exportData = () => {
     const data = {
-      userCredentials: localStorage.getItem('userCredentials'),
-      CGeminiData: localStorage.getItem('CGemini-collections'),
+        CGeminiData: localStorage.getItem('CGemini-collections'),
     };
     const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -29,12 +28,12 @@ const DropDown = forwardRef(({ dropDown, setDropDown }, ref) => {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-  };
+};
 
-  const importData = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (e) => {
+const importData = (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = (e) => {
       const data = JSON.parse(e.target.result);
 
       // Merge existing data with imported data
@@ -50,17 +49,16 @@ const DropDown = forwardRef(({ dropDown, setDropDown }, ref) => {
       // Merge the filtered new data with existing data
       const mergedCGeminiData = [...existingCGeminiData, ...filteredNewData];
 
-      localStorage.setItem('userCredentials', data.userCredentials);
       localStorage.setItem('CGemini-collections', JSON.stringify(mergedCGeminiData));
       setItems(mergedCGeminiData);
       setSelect(null);
-    };
-    reader.readAsText(file);
   };
+  reader.readAsText(file);
+};
 
   return (
     <section ref={ref} className='fixed p-2 rounded-lg top-14 right-3 bg-gray-100 shadow-xl text-black dark:bg-slate-800 w-56 dark:text-white flex flex-col gap-2'>
-      <h2 className='w-full text-center'>{email}</h2>
+      <h2 className='w-full text-center'>{email.length>15?email.slice(0,10)+".."+email.slice(email.length-4,email.length):email}</h2>
       <input
         type="file"
         id="importFile"

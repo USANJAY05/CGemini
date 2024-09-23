@@ -26,7 +26,7 @@ const SideBar = ({sideBar,setSideBar,items,select,setSelect,handleDelete,collect
                 {collections.map(item=>(
                     <li key={item.id} className={` hover:bg-gray-500 rounded-md flex justify-between items-center ${select===item.id?'bg-gray-500':''}`} >
                         <div className='p-2 w-full'  onClick={()=>{setSelect(item.id) , isMobile?setSideBar(!sideBar):''}}>
-                            {item.id.length>25?item.id.slice(0,20)+'....':item.id}
+                            {item.title.length>25?item.title.slice(0,20)+'....':item.title}
                         </div>
                         <FaTrash onClick={()=>handleDelete(item.id)} className='text-2xl w-10 hover:text-red-500 text-gray-950' /></li>
                 ))}

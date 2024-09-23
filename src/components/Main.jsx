@@ -14,11 +14,13 @@ import CopyButton from './CopyButton';
 import TextReader from './TextReader'; // Import the TextReader component
 import SpeechToText from './SpeechToText'; // Import the SpeechToText component
 import LoadingSpinner from './LoadingSpinner';
+import useMobileSize from '../hooks/useMobileSize';
 
 const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDelete, loading, handleSubmit1, collections }) => {
   const navigate = useNavigate();
   const [sideBar, setSideBar] = useState(false);
   const inputRef = useRef(null);
+  const isMobile=useMobileSize()
 
   const handleFocus = () => {
     if (inputRef.current) {
@@ -46,7 +48,7 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
       />
       <section className='w-full flex flex-col dark:bg-black dark:text-white items-center'>
         <Header sideBar={sideBar} setSideBar={setSideBar} />
-        <div className='lg:w-[750px] w-full h-full flex flex-col overflow-auto gap-3 p-3'>
+        <div className={`lg:w-[750px] ${!sideBar && !isMobile? 'sm:w-[500px]':'lg:w-[750px] sm:w-[650px] w-full'} h-full flex flex-col overflow-auto gap-3 p-3`}>
           {select === null ? (
             <Default setType={setType} handleSubmit={handleSubmit1} />
           ) : (
@@ -92,7 +94,7 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
           handleSubmit(e);
           handleFocus(); // Focus on the input after submit
         }}>
-          <div className='w-full sm:w-[500px] lg:w-[700px] xl:w-[900px] relative'>
+          <div className='w-full px-4 sm:w-full sm:mx-10 lg:w-[80%] xl:w-[900px] relative'>
             <input
               className='rounded-sm bg-inherit border p-3 pr-12 w-full outline-none'
               autoFocus
@@ -107,7 +109,7 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
               // <h1 className='text-xl text-gray-500'>Loading.....</h1>
             ) : (
               <IoIosSend
-                className='text-4xl absolute top-2 right-3 cursor-pointer'
+                className='text-4xl absolute top-2 right-6 cursor-pointer'
                 onClick={e => {
                   e.preventDefault();
                   handleSubmit(e);
