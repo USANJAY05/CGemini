@@ -48,12 +48,14 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
       />
       <section className='w-full flex flex-col dark:bg-black dark:text-white items-center'>
         <Header sideBar={sideBar} setSideBar={setSideBar} />
-        <div className={`lg:w-[750px] ${!sideBar && !isMobile? 'sm:w-[500px]':'lg:w-[750px] sm:w-[650px] w-full'} h-full flex flex-col overflow-auto gap-3 p-3`}>
+        <div className={` h-full w-full items-center flex flex-col overflow-auto gap-3 p-3`}>
           {select === null ? (
             <Default setType={setType} handleSubmit={handleSubmit1} />
           ) : (
             collections.filter(item => item.id === select).map(item => (
-              <section key={item.id}>
+              <section 
+              className={`lg:w-[750px] ${!sideBar && !isMobile? 'sm:w-[500px]':'lg:w-[750px] sm:w-[650px] w-full'}`}
+                key={item.id}>
                 {item.items.map(subItem => (
                   <div key={subItem.id}>
                     <div className='rounded-md p-3 flex flex-row-reverse items-end gap-2'>
