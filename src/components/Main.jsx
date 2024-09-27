@@ -21,6 +21,10 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
   const [sideBar, setSideBar] = useState(false);
   const inputRef = useRef(null);
   const isMobile=useMobileSize()
+  const endRef=useRef(null)
+  useEffect(()=>{
+    endRef.current?.scrollIntoView({behavior:"smooth"})
+  },[handleSubmit])
 
   const handleFocus = () => {
     if (inputRef.current) {
@@ -84,6 +88,7 @@ const Main = ({ items, select, setSelect, type, setType, handleSubmit, handleDel
                         </div>
                       </div>
                     </div>
+                    <div ref={endRef}></div>
                   </div>
                 ))}
               </section>
