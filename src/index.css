@@ -2,7 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 /* src/styles/tailwind.css */
+.markdown-table {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
 
+/* ✅ Ensure table does not break layout */
+.markdown-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
 @layer utilities {
     .code-overflow {
       @apply overflow-x-auto;
