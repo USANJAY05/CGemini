@@ -24,7 +24,7 @@ const SideBar = ({sideBar,setSideBar,items,select,setSelect,handleDelete,collect
         <div className='h-full overflow-auto p-2'>
             <ul className='overflow-auto hover:cursor-pointer'>
                 {collections.map(item=>(
-                    <li key={item.id} className={` hover:bg-gray-500 rounded-md flex justify-between items-center ${select===item.id?'bg-gray-500':''}`} >
+                    <li key={item.id} className={`hover:bg-gray-200 dark:hover:bg-gray-500 rounded-md flex justify-between items-center ${select===item.id?'bg-gray-200 dark:bg-gray-500':''}`} >
                         <div className='p-2 w-full'  onClick={()=>{setSelect(item.id) , isMobile?setSideBar(!sideBar):''}}>
                             {item.title.length>25?item.title.slice(0,20)+'....':item.title}
                         </div>
